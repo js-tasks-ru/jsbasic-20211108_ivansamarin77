@@ -12,7 +12,7 @@ function print(text) {
 function isValid(name) {
   if (name === null) {
     return false
-  } else if (name.indexOf(' ') >= 0) {
+  } else if (name.includes(' ')) {
     return false
   } else if (name.length < 4) {
     return false
