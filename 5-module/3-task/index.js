@@ -11,7 +11,8 @@ function initCarousel() {
 
   leftButton.addEventListener('click', () => {
     sliderPosition += sliderWidth
-    
+    rightButton.style.display = ''
+
     if (sliderPosition > 0) {
       sliderPosition = 0;
     }
@@ -20,27 +21,21 @@ function initCarousel() {
       leftButton.style.display = 'none'
     }
 
-    if (sliderPosition > -2963) {
-      rightButton.style.display = ''
-    }
-
     slider.style.transform = `translateX(${sliderPosition}px)`
   })
 
   rightButton.addEventListener('click', () => {
     sliderPosition -= sliderWidth
-
-    if (sliderPosition < -2964) {
-      sliderPosition = -2964;
+    leftButton.style.display = ''
+    
+    if (sliderPosition < -`${sliderWidth * 3}`) {
+      sliderPosition = -`${sliderWidth * 3}`;
     }
     
-    if (sliderPosition === -2964) {
+    if (sliderPosition === -`${sliderWidth * 3}`) {
       rightButton.style.display = 'none'
     } 
-    
-    if (sliderPosition < 0) {
-      leftButton.style.display = ''
-    }
+
     slider.style.transform = `translateX(${sliderPosition}px)`
   })
 }
